@@ -68,6 +68,29 @@
 .quiz-contact .form-note,.form-note{font-size:9px;color:var(--muted);margin-top:14px;line-height:1.7}
 #quiz-send-status{font-size:12px;margin-top:15px;color:var(--accent)}
 .honeypot{display:none!important}
+.contact-fields.contact-fields-simple{grid-template-columns:1fr}
+.contact-channels{margin:24px 0 0;padding:0;border:0;min-width:0}
+.contact-channels legend{font-size:12px;line-height:1.5;margin-bottom:12px;padding:0;color:var(--fg)}
+.channel-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.channel-option{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 10px;border:1px solid #f2eee64a;cursor:pointer;font-size:12px;line-height:1.4;text-align:center}
+.channel-option input{position:absolute;width:1px;height:1px;opacity:0}
+.channel-option:has(input:checked){background:var(--accent);border-color:var(--accent);color:#151412}
+.channel-option:hover{border-color:var(--accent)}
+.channel-option:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:4px}
+.contact-hint{display:block;font-size:10px;line-height:1.7;color:var(--muted);margin-top:14px}
+.callback-dialog{width:min(580px,calc(100% - 32px));max-height:92svh}
+.as .callback-dialog .dialog-top{padding:25px 28px}
+.as .callback-dialog .dialog-top h2{font-size:29px;line-height:1.15;max-width:380px}
+.callback-body{padding:25px 28px 30px}
+.callback-body>p{font-size:13px;line-height:1.8;margin-bottom:24px}
+.callback-submit{width:100%;margin-top:25px;text-align:left}
+#callback-send-status{font-size:11px;line-height:1.7;color:var(--accent);margin-top:15px}
+#callback-send-status:empty{display:none}
+.callback-thanks{max-width:900px!important}
+.callback-thanks h1{font-size:clamp(40px,6vw,76px);line-height:1.05}
+.callback-thanks>p{font-size:17px;line-height:1.8;margin-top:28px;max-width:650px}
+.callback-thanks>.contact-hint{font-size:12px}
+@media(max-width:760px){.callback-dialog{width:calc(100% - 24px);max-height:94svh}.as .callback-dialog .dialog-top{padding:20px}.as .callback-dialog .dialog-top h2{font-size:25px}.callback-body{padding:22px 20px 25px}.callback-body>p{font-size:12px}.channel-options{gap:8px}.channel-option{font-size:11px;padding:12px 7px;min-height:47px}.callback-submit{font-size:12px;min-height:52px}.callback-thanks>p{font-size:14px}.callback-thanks>.contact-hint{font-size:11px}}
 .quiz-step legend,.quiz-contact h3{scroll-margin-top:30px}
 .as .dialog-top{position:sticky;top:0;z-index:2;background:var(--bg)}
 .as .portfolio-section{background:var(--bg);padding-top:96px}

@@ -7,7 +7,6 @@ const nav = form.querySelector('.quiz-navigation');
 const next = document.querySelector('#quiz-next');
 const back = document.querySelector('#quiz-back');
 const phone = document.querySelector('#lead-phone');
-const nameField = document.querySelector('#lead-name');
 const progress = document.querySelector('#quiz-progress');
 const status = document.querySelector('#quiz-send-status');
 let step = 0;
@@ -59,7 +58,6 @@ form.addEventListener('invalid', event => {
   if (step < 3 && !QUESTION_NAMES.includes(event.target.name)) event.preventDefault();
 }, true);
 phone.addEventListener('input', () => {phone.setCustomValidity('');phone.removeAttribute('aria-invalid');});
-nameField.addEventListener('input', () => nameField.setCustomValidity(''));
 phone.addEventListener('blur', () => {
   if (phone.value && !validPhone(phone.value)) {
     phone.setCustomValidity('Укажите телефон полностью: от 10 до 15 цифр.');
@@ -71,7 +69,6 @@ form.addEventListener('submit', event => {
   const missing = firstUnanswered(values());
   if (missing !== -1) {event.preventDefault();step = missing;render();return;}
   if (step < 3) {event.preventDefault();step = 3;render();return;}
-  nameField.setCustomValidity(nameField.value.trim().length < 2 ? 'Укажите имя: не менее двух символов.' : '');
   phone.setCustomValidity(validPhone(phone.value) ? '' : 'Укажите телефон полностью: от 10 до 15 цифр.');
   if (!form.reportValidity()) {event.preventDefault();return;}
   if (form.elements._honey.value) {event.preventDefault();return;}
