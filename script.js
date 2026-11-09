@@ -76,3 +76,12 @@ for (const dialog of $$('dialog')) {
     if (opener?.isConnected && opener.getClientRects().length) opener.focus({preventScroll:true});
   });
 }
+
+const marquee = $('.brand-marquee');
+const marqueeToggle = $('.marquee-toggle');
+marqueeToggle?.addEventListener('click', () => {
+  const paused = marquee.dataset.paused !== 'true';
+  marquee.dataset.paused = String(paused);
+  marqueeToggle.setAttribute('aria-pressed', String(paused));
+  marqueeToggle.setAttribute('aria-label', paused ? 'Продолжить бегущую строку' : 'Приостановить бегущую строку');
+});

@@ -1,4 +1,18 @@
 /* Portfolio, full-service delivery and verified founder information. */
+.as .brand-marquee{position:relative;overflow:hidden;border-block:1px solid var(--line);padding:16px 0;color:var(--muted);background:var(--bg)}
+.as .marquee-track{display:flex;width:max-content;animation:brand-marquee 24s linear infinite}
+.as .marquee-group{display:flex;align-items:center;justify-content:space-around;flex-shrink:0;min-width:100vw;gap:.6em;padding-right:.6em;font-size:24px;line-height:1.5;white-space:nowrap}
+.as .marquee-toggle{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;padding:0;background:var(--bg);color:var(--muted);border:1px solid var(--line);box-shadow:0 0 20px 10px var(--bg);cursor:pointer}
+.as .marquee-toggle:hover{color:var(--fg);border-color:var(--accent)}
+.as .marquee-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.as .marquee-toggle svg{width:18px;height:18px}
+.as .marquee-toggle .marquee-play{display:none}
+.as .brand-marquee[data-paused=true] .marquee-track{animation-play-state:paused}
+.as .brand-marquee[data-paused=true] .marquee-pause{display:none}
+.as .brand-marquee[data-paused=true] .marquee-play{display:block}
+@keyframes brand-marquee{to{transform:translateX(-50%)}}
+@media(max-width:760px){.as .marquee-group{font-size:20px}.as .marquee-toggle{right:16px}}
+@media(prefers-reduced-motion:reduce){.as .marquee-track{animation:none}.as .marquee-toggle{display:none}}
 .as .project-photo-count{position:absolute;left:16px;bottom:16px;background:#151412de;color:#fff;padding:8px 12px;font-size:14px;line-height:1.4;border:1px solid #ffffff35}
 .as .portfolio-section .project-meta{flex-wrap:wrap;gap:6px 20px;line-height:1.5}
 .as .portfolio-section .project-cover{background:#211f1c}

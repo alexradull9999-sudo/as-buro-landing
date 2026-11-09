@@ -1,5 +1,71 @@
 window.LANDING_PROJECTS = [
   {
+    "id": "novogorsk-main",
+    "title": "КП «Новогорск Club»",
+    "style": "Современная эклектика",
+    "description": "Парадная гостиная с открытой лестницей, крупной мягкой зоной и каминным порталом. Камень, дерево, металл и каскадный свет создают многослойный образ современной эклектики.",
+    "images": [
+      "assets/portfolio/photos/novogorsk-main-01.webp",
+      "assets/portfolio/photos/novogorsk-main-02.webp",
+      "assets/portfolio/photos/novogorsk-main-03.webp",
+      "assets/portfolio/photos/novogorsk-main-04.webp"
+    ],
+    "alts": [
+      "КП «Новогорск Club» — гостиная и лестница",
+      "КП «Новогорск Club» — мягкая зона",
+      "КП «Новогорск Club» — ванная комната",
+      "КП «Новогорск Club» — детали отделки"
+    ],
+    "cover": "assets/portfolio/photos/novogorsk-main-cover.webp",
+    "status": "Портфолио",
+    "area": null,
+    "sourcePages": [
+      7,
+      8
+    ],
+    "captions": [
+      "Гостиная и лестница",
+      "Мягкая зона",
+      "Ванная комната",
+      "Детали отделки"
+    ],
+    "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
+  },
+  {
+    "id": "kushelev",
+    "title": "Особняк Кушелева",
+    "style": "Современная эклектика",
+    "description": "Современная геометрия мебели соединена с классическими стеновыми профилями. Светлый камень, тёмное дерево и глубокий зелёный цвет повторяются в кухне, гостиной и приватных комнатах.",
+    "images": [
+      "assets/portfolio/photos/kushelev-01.webp",
+      "assets/portfolio/photos/kushelev-02.webp",
+      "assets/portfolio/photos/kushelev-03.webp",
+      "assets/portfolio/photos/kushelev-04.webp",
+      "assets/portfolio/photos/kushelev-05.webp"
+    ],
+    "alts": [
+      "Особняк Кушелева — кухня с островом",
+      "Особняк Кушелева — гостиная",
+      "Особняк Кушелева — холл",
+      "Особняк Кушелева — ванная комната",
+      "Особняк Кушелева — спальня"
+    ],
+    "cover": "assets/portfolio/photos/kushelev-cover.webp",
+    "status": "Портфолио",
+    "area": null,
+    "sourcePages": [
+      35
+    ],
+    "captions": [
+      "Кухня с островом",
+      "Гостиная",
+      "Холл",
+      "Ванная комната",
+      "Спальня"
+    ],
+    "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
+  },
+  {
     "id": "redside",
     "title": "ЖК RedSide",
     "style": "Современный стиль",
@@ -226,38 +292,6 @@ window.LANDING_PROJECTS = [
     "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
   },
   {
-    "id": "novogorsk-main",
-    "title": "КП «Новогорск Club»",
-    "style": "Современная эклектика",
-    "description": "Парадная гостиная с открытой лестницей, крупной мягкой зоной и каминным порталом. Камень, дерево, металл и каскадный свет создают многослойный образ современной эклектики.",
-    "images": [
-      "assets/portfolio/photos/novogorsk-main-01.webp",
-      "assets/portfolio/photos/novogorsk-main-02.webp",
-      "assets/portfolio/photos/novogorsk-main-03.webp",
-      "assets/portfolio/photos/novogorsk-main-04.webp"
-    ],
-    "alts": [
-      "КП «Новогорск Club» — гостиная и лестница",
-      "КП «Новогорск Club» — мягкая зона",
-      "КП «Новогорск Club» — ванная комната",
-      "КП «Новогорск Club» — детали отделки"
-    ],
-    "cover": "assets/portfolio/photos/novogorsk-main-cover.webp",
-    "status": "Портфолио",
-    "area": null,
-    "sourcePages": [
-      7,
-      8
-    ],
-    "captions": [
-      "Гостиная и лестница",
-      "Мягкая зона",
-      "Ванная комната",
-      "Детали отделки"
-    ],
-    "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
-  },
-  {
     "id": "botanical-life",
     "title": "ЖК «Ботанический Life»",
     "style": "Современная эклектика",
@@ -291,40 +325,6 @@ window.LANDING_PROJECTS = [
       "Гостиная — другой ракурс",
       "Туалетный столик",
       "Детали спальни"
-    ],
-    "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
-  },
-  {
-    "id": "kushelev",
-    "title": "Особняк Кушелева",
-    "style": "Современная эклектика",
-    "description": "Современная геометрия мебели соединена с классическими стеновыми профилями. Светлый камень, тёмное дерево и глубокий зелёный цвет повторяются в кухне, гостиной и приватных комнатах.",
-    "images": [
-      "assets/portfolio/photos/kushelev-01.webp",
-      "assets/portfolio/photos/kushelev-02.webp",
-      "assets/portfolio/photos/kushelev-03.webp",
-      "assets/portfolio/photos/kushelev-04.webp",
-      "assets/portfolio/photos/kushelev-05.webp"
-    ],
-    "alts": [
-      "Особняк Кушелева — кухня с островом",
-      "Особняк Кушелева — гостиная",
-      "Особняк Кушелева — холл",
-      "Особняк Кушелева — ванная комната",
-      "Особняк Кушелева — спальня"
-    ],
-    "cover": "assets/portfolio/photos/kushelev-cover.webp",
-    "status": "Портфолио",
-    "area": null,
-    "sourcePages": [
-      35
-    ],
-    "captions": [
-      "Кухня с островом",
-      "Гостиная",
-      "Холл",
-      "Ванная комната",
-      "Спальня"
     ],
     "sourceDocument": "Портфолио АС бюро_27.07.26.pdf"
   },
