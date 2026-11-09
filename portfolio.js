@@ -9,7 +9,8 @@ function showProjects() {
   const visible = expanded ? matches : matches.slice(0,6);
   cards.forEach(card => card.hidden = !visible.includes(card));
   more.hidden = expanded || matches.length <= 6;
-  count.textContent = `Показано ${visible.length} из ${matches.length}` + (style === 'all' ? ' · 5 стилевых направлений' : ` · ${style}`);
+  const styleCount = new Set(cards.map(card => card.dataset.projectStyle)).size;
+  count.textContent = `Показано ${visible.length} из ${matches.length}` + (style === 'all' ? ` · ${styleCount} стилевых направлений` : ` · ${style}`);
   filters.forEach(button => button.setAttribute('aria-pressed',String(button.dataset.style === style)));
 }
 filters.forEach(button => button.addEventListener('click', () => {style = button.dataset.style;expanded = false;showProjects();}));

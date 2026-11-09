@@ -1,0 +1,48 @@
+/* Portfolio, full-service delivery and verified founder information. */
+.as .project-photo-count{position:absolute;left:16px;bottom:16px;background:#151412de;color:#fff;padding:8px 12px;font-size:14px;line-height:1.4;border:1px solid #ffffff35}
+.as .portfolio-section .project-meta{flex-wrap:wrap;gap:6px 20px;line-height:1.5}
+.as .portfolio-section .project-cover{background:#211f1c}
+.as .service-construction{border-bottom-color:var(--accent)}
+.as .construction-points{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:20px 0 0}
+.as .construction-points li{border:1px solid var(--line);padding:8px 10px;color:var(--fg);font-size:14px;line-height:1.5}
+.as .turnkey-callout{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:34px;margin-top:36px;background:#29251f;border:1px solid #b097755c}
+.as .turnkey-callout .eyebrow{margin-bottom:14px}
+.as .turnkey-callout h3{font-size:27px;line-height:1.25}
+.as .turnkey-callout p{font-size:15px;margin-top:13px}
+.as .turnkey-callout>.btn{flex-shrink:0;max-width:320px}
+.as .founder .split{align-items:center;gap:clamp(40px,6vw,100px)}
+.as .founder-credentials{list-style:none;padding:0;margin:25px 0 0;display:grid;gap:17px}
+.as .founder-credentials li{padding-left:17px;border-left:2px solid #b09775;font-size:15px;line-height:1.7;color:#5b5349}
+.as .founder-credentials strong{font-weight:600;color:#23211e}
+.as .founder-portrait{width:min(100%,470px);padding:32px;background:#e7e0d5;border:1px solid #d5c9b8;justify-self:center;align-self:center}
+.as .founder-portrait .portrait{width:100%;height:auto;aspect-ratio:2/3;max-height:none;object-fit:contain;object-position:center}
+.as #gallery{width:min(1160px,calc(100% - 40px))}
+.as #gallery .dialog-top{position:sticky;top:0;z-index:2;background:var(--bg)}
+.as #gallery .gallery-image{width:100%;height:58svh;max-height:700px;min-height:280px;aspect-ratio:auto;object-fit:contain;background:#0e0e0d}
+.as .gallery-caption{text-align:center;font-size:14px;line-height:1.5;color:var(--muted);padding:0 24px 20px}
+.as .gallery-thumbs{padding-bottom:24px}
+.as .gallery-thumbs button{flex-basis:110px;border-width:2px}
+.as .gallery-thumbs img{height:76px}
+.as .gallery-description{display:grid;grid-template-columns:1fr auto;gap:20px 30px;align-items:center;padding-bottom:30px}
+.as .gallery-description p{grid-column:1/-1;max-width:none;font-size:15px;line-height:1.7}
+.as .gallery-description .text-link{font-size:14px;justify-self:start;line-height:1.5}
+@media(max-width:1100px){.as .turnkey-callout{align-items:flex-start;flex-direction:column}.as .founder-portrait{padding:26px}}
+@media(max-width:760px){
+ .as .project-photo-count{left:12px;bottom:12px;padding:6px 10px}
+ .as .service-construction>div{grid-column:2}
+ .as .turnkey-callout{padding:24px;gap:24px;margin-top:28px}
+ .as .turnkey-callout h3{font-size:24px}
+ .as .turnkey-callout>.btn{width:100%;max-width:none;gap:16px}
+ .as .founder-portrait{order:1;width:min(100%,390px);padding:22px}
+ .as .founder .split>div{order:2}
+ .as .founder .split{gap:36px}
+ .as .founder-credentials{gap:18px}
+ .as .founder-credentials li{font-size:15px}
+ .as #gallery{width:calc(100% - 20px)}
+ .as #gallery .gallery-image{height:43svh;max-height:500px;min-height:240px;aspect-ratio:auto}
+ .as .gallery-thumbs button{flex-basis:88px}
+ .as .gallery-thumbs img{height:65px}
+ .as .gallery-description{display:flex;flex-direction:column;align-items:stretch;gap:22px;padding:0 20px 25px}
+ .as .gallery-description .text-link{align-self:flex-start}
+ .as .gallery-description>.btn{margin:0;width:100%}
+}

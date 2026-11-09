@@ -18,7 +18,8 @@ function showPhoto() {
   if (!current) return;
   const asset = current.images[photo];
   $('#gallery-image').src = asset;
-  $('#gallery-image').alt = current.alts?.[photo] || current.title + ' · лист портфолио ' + (photo + 1);
+  $('#gallery-image').alt = current.alts?.[photo] || current.title + ' · ракурс ' + (photo + 1);
+  $('#gallery-caption').textContent = current.captions?.[photo] || '';
   $('#gallery-full').href = asset;
   $('#gallery-count').textContent = String(photo + 1).padStart(2,'0') + ' / ' + String(current.images.length).padStart(2,'0');
   $$('[data-thumb]',gallery).forEach((button,i) => button.setAttribute('aria-current', String(i === photo)));
@@ -34,7 +35,7 @@ function openProject(id,index,trigger) {
   $('#gallery-thumbs').replaceChildren(...current.images.map((src,i) => {
     const button = document.createElement('button');
     button.type = 'button';button.dataset.thumb = i;
-    button.setAttribute('aria-label','Показать лист портфолио ' + (i + 1));
+    button.setAttribute('aria-label','Показать ракурс ' + (i + 1) + ': ' + (current.captions?.[i] || current.title));
     const img = document.createElement('img');img.src = src;img.alt = '';img.loading = 'lazy';
     button.append(img);return button;
   }));
