@@ -1,0 +1,12 @@
+{
+  "name": "as-buro-forms",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "check:smtp": "node --env-file-if-exists=.env check-smtp.mjs",
+    "test": "node --test ../tests/*.test.mjs"
+  },
+  "dependencies": {"nodemailer": "10.5.0"}
+}

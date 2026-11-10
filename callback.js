@@ -1,4 +1,5 @@
 import {validPhone} from './quiz-core.mjs';
+import {sendDirect} from './form-delivery.mjs';
 
 const form = document.querySelector('#callback-form');
 const phone = document.querySelector('#callback-phone');
@@ -21,6 +22,11 @@ form.addEventListener('submit', event => {
   if (!form.reportValidity()) {event.preventDefault();return;}
   submitting = true;
   form.setAttribute('aria-busy','true');
+  if (form.dataset.delivery === 'smtp') {
+    event.preventDefault();
+    void sendDirect(form, status).finally(() => {submitting = false;});
+    return;
+  }
   status.textContent = 'Переходим к проверке от спама для отправки заявки.';
   // The real native POST uses the same activated recipient and CAPTCHA as the quiz.
 });

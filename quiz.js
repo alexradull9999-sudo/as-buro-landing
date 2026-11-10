@@ -1,4 +1,5 @@
 import {QUESTION_NAMES, validPhone, firstUnanswered, buildSummary} from './quiz-core.mjs';
+import {sendDirect} from './form-delivery.mjs';
 
 const form = document.querySelector('#quiz-form');
 const steps = [...form.querySelectorAll('[data-step]')];
@@ -74,6 +75,11 @@ form.addEventListener('submit', event => {
   if (form.elements._honey.value) {event.preventDefault();return;}
   submitting = true;
   form.setAttribute('aria-busy','true');
+  if (form.dataset.delivery === 'smtp') {
+    event.preventDefault();
+    void sendDirect(form, status).finally(() => {submitting = false;});
+    return;
+  }
   status.textContent = 'Переходим к проверке от спама. После отправки откроется подборка.';
   // A regular POST keeps the provider's CAPTCHA. No optimistic delivery message.
 });
