@@ -13,6 +13,25 @@
 @keyframes brand-marquee{to{transform:translateX(-50%)}}
 @media(max-width:760px){.as .marquee-group{font-size:20px}.as .marquee-toggle{right:16px}}
 @media(prefers-reduced-motion:reduce){.as .marquee-track{animation:none}.as .marquee-toggle{display:none}}
+
+.as .interior-clients h2, .as .interior-reviews h2 { margin: 0 0 28px; }
+.as .clients-marquee { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+.as .clients-marquee-viewport { flex: 1; min-width: 0; overflow: hidden; }
+.as .clients-marquee .marquee-track { animation: none; width: auto; }
+.as .clients-marquee .marquee-group { flex-wrap: wrap; justify-content: space-between; gap: 8px 22px; min-width: 0; width: 100%; padding: 0; font-size: clamp(17px, 2vw, 23px); }
+.as .clients-marquee .marquee-group[aria-hidden] { display: none; }
+.as .clients-marquee .marquee-toggle { position: static; transform: none; flex: none; box-shadow: none; margin-right: 3px; }
+.as .clients-marquee .marquee-toggle[hidden] { display: none; }
+.as .interior-review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.as .interior-review-grid figure { display: flex; flex-direction: column; gap: 20px; margin: 0; padding: 22px 0 0; border-top: 1px solid var(--line); }
+.as .interior-review-grid blockquote { margin: 0; color: var(--fg); font-size: clamp(17px, 2vw, 22px); line-height: 1.45; }
+.as .interior-review-grid figcaption { margin-top: auto; color: var(--muted); font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) {
+  .as .clients-marquee[data-animated=true] .marquee-track { width: max-content; animation: brand-marquee 28s linear infinite; }
+  .as .clients-marquee[data-animated=true] .marquee-group { display: flex; flex-wrap: nowrap; justify-content: space-around; width: auto; min-width: min(88vw, 1100px); gap: 32px; padding-right: 32px; }
+  .as .clients-marquee[data-paused=true] .marquee-track { animation-play-state: paused; }
+}
+@media (max-width: 760px) { .as .interior-review-grid { grid-template-columns: 1fr; } }
 .as .project-photo-count{position:absolute;left:16px;bottom:16px;background:#151412de;color:#fff;padding:8px 12px;font-size:14px;line-height:1.4;border:1px solid #ffffff35}
 .as .portfolio-section .project-meta{flex-wrap:wrap;gap:6px 20px;line-height:1.5}
 .as .portfolio-section .project-cover{background:#211f1c}

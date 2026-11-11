@@ -77,11 +77,15 @@ for (const dialog of $$('dialog')) {
   });
 }
 
-const marquee = $('.brand-marquee');
-const marqueeToggle = $('.marquee-toggle');
-marqueeToggle?.addEventListener('click', () => {
-  const paused = marquee.dataset.paused !== 'true';
-  marquee.dataset.paused = String(paused);
-  marqueeToggle.setAttribute('aria-pressed', String(paused));
-  marqueeToggle.setAttribute('aria-label', paused ? 'Продолжить бегущую строку' : 'Приостановить бегущую строку');
-});
+for (const marquee of document.querySelectorAll('.brand-marquee')) {
+  const toggle = marquee.querySelector('.marquee-toggle');
+  if (!toggle) continue;
+  marquee.dataset.animated = 'true';
+  toggle.hidden = false;
+  toggle.addEventListener('click', () => {
+    const paused = marquee.dataset.paused !== 'true';
+    marquee.dataset.paused = String(paused);
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? 'Продолжить бегущую строку' : 'Приостановить бегущую строку');
+  });
+}
