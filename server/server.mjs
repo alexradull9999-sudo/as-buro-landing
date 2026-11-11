@@ -22,7 +22,7 @@ const PUBLIC_FILES = new Set([
   'index.html', 'thanks.html', 'contact-thanks.html',
   'style.css', 'home.css', 'project-updates.css',
   'script.js', 'projects.js', 'portfolio.js', 'quiz.js', 'callback.js',
-  'quiz-core.mjs', 'form-delivery.mjs'
+  'quiz-core.mjs', 'form-delivery.mjs', 'hosted-delivery.mjs'
 ]);
 const MIME = {'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.pdf': 'application/pdf'};
 class HttpError extends Error {
@@ -173,8 +173,8 @@ export function createLandingServer({sendMail, from, to = 'offer@a-s-buro.com', 
         throw error;
       }
       if (name === 'index.html') {
-        content = content.toString('utf8').replace(/<form\b[^>]*\bid="(quiz|callback)-form"[^>]*>/g, (tag, formKind) => tag.replace(/action="[^"]*"/, `action="/api/leads/${formKind}" data-delivery="smtp"`) + `<input type="hidden" name="_request" value="${token(formKind)}">`)
-          .replace(/<input\b[^>]*\bname="_(subject|template|url|next)"[^>]*>/g, '');
+        content = content.toString('utf8').replace(/<form\b[^>]*\bid="(quiz|callback)-form"[^>]*>/g, (tag, formKind) => tag.replace(/\sdata-delivery="[^"]*"/g, '').replace(/action="[^"]*"/, `action="/api/leads/${formKind}" data-delivery="smtp"`) + `<input type="hidden" name="_request" value="${token(formKind)}">`)
+          .replace(/<input\b[^>]*\bname="(?:_(?:subject|template|url|next)|access_key|subject|redirect|from_name|botcheck)"[^>]*>/g, '');
       }
       reply(res, 200, content, MIME[extname(name)], {'Cache-Control': name.startsWith('assets/') || name.startsWith('downloads/') ? 'public, max-age=3600' : 'no-store'}, req.method);
     } catch (error) {

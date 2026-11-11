@@ -1,5 +1,6 @@
 import {QUESTION_NAMES, validPhone, firstUnanswered, buildSummary} from './quiz-core.mjs';
 import {sendDirect} from './form-delivery.mjs';
+import {prepareCaptcha, sendHosted} from './hosted-delivery.mjs';
 
 const form = document.querySelector('#quiz-form');
 const steps = [...form.querySelectorAll('[data-step]')];
@@ -12,6 +13,7 @@ const progress = document.querySelector('#quiz-progress');
 const status = document.querySelector('#quiz-send-status');
 let step = 0;
 let submitting = false;
+if (form.dataset.delivery === 'web3forms') prepareCaptcha(form, status);
 
 function values() {
   const data = new FormData(form);
@@ -75,6 +77,11 @@ form.addEventListener('submit', event => {
   if (form.elements._honey.value) {event.preventDefault();return;}
   submitting = true;
   form.setAttribute('aria-busy','true');
+  if (form.dataset.delivery === 'web3forms') {
+    event.preventDefault();
+    void sendHosted(form, status).finally(() => {submitting = false;});
+    return;
+  }
   if (form.dataset.delivery === 'smtp') {
     event.preventDefault();
     void sendDirect(form, status).finally(() => {submitting = false;});

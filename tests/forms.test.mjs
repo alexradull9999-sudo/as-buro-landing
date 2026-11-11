@@ -38,15 +38,15 @@ async function fixture(t, options = {}) {
 test('Static forms use the correct domain; SMTP rendering changes only delivery fields', async t => {
   const f = await fixture(t);
   const source = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  assert.equal((source.match(/action="https:\/\/formsubmit.co\/offer@a-s-buro.com"/g) || []).length, 2);
+  assert.equal((source.match(/action="https:\/\/api.web3forms.com\/submit" data-delivery="web3forms"/g) || []).length, 2);
   assert.equal(source.includes('github.io'), false);
   for (const name of ['thanks.html', 'contact-thanks.html']) assert.ok(source.includes(`value="https://a-s-buro.ru/${name}"`));
   assert.equal(Object.keys(f.tokens).length, 2);
   assert.equal(f.html.includes('formsubmit.co'), false);
   assert.equal(f.html.includes('name="_next"'), false);
   const normalize = html => html.replace(/<input type="hidden" name="_request"[^>]*>/g, '')
-    .replace(/action="[^"]*"(?: data-delivery="smtp")?/g, 'action="FORM"')
-    .replace(/<input\b[^>]*\bname="_(subject|template|url|next)"[^>]*>/g, '');
+    .replace(/action="[^"]*"(?: data-delivery="(?:smtp|web3forms)")?/g, 'action="FORM"')
+    .replace(/<input\b[^>]*\bname="(?:_(?:subject|template|url|next)|access_key|subject|redirect|from_name|botcheck)"[^>]*>/g, '');
   assert.equal(normalize(f.html), normalize(source));
 });
 

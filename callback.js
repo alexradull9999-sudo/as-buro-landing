@@ -1,10 +1,12 @@
 import {validPhone} from './quiz-core.mjs';
 import {sendDirect} from './form-delivery.mjs';
+import {prepareCaptcha, sendHosted} from './hosted-delivery.mjs';
 
 const form = document.querySelector('#callback-form');
 const phone = document.querySelector('#callback-phone');
 const status = document.querySelector('#callback-send-status');
 let submitting = false;
+if (form.dataset.delivery === 'web3forms') prepareCaptcha(form, status);
 
 phone.addEventListener('input', () => {
   phone.setCustomValidity('');
@@ -22,6 +24,11 @@ form.addEventListener('submit', event => {
   if (!form.reportValidity()) {event.preventDefault();return;}
   submitting = true;
   form.setAttribute('aria-busy','true');
+  if (form.dataset.delivery === 'web3forms') {
+    event.preventDefault();
+    void sendHosted(form, status).finally(() => {submitting = false;});
+    return;
+  }
   if (form.dataset.delivery === 'smtp') {
     event.preventDefault();
     void sendDirect(form, status).finally(() => {submitting = false;});
